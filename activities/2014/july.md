@@ -30,7 +30,7 @@
 
 ## 5th week
 
-- Removed submodule dependencies from OpenCV and OpenMVG: they increses project complexity and at currently they are not modified
+- Removed submodule dependencies from OpenCV and OpenMVG: they increases project complexity and at currently they are not modified
     - In fact, QtCreator does not recognize the OpenCV INCLUDEPATH using submodules
 - Debugging triangulation procedures to reduce the high Mean Reprojection Error (from 1000 to less than 1.0!)
 
