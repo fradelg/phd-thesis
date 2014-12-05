@@ -1,6 +1,3 @@
-
-# Scene Flow
-
 The optical flow introduces a two-dimensional motion field over the image plane. It is the projection of a three-dimensional motion in the world which, in a non-rigid scene, can be represented as a dense 3D vector field for every point in the scene. This concept was defined by the term "scene flow" by @vedula1999sceneflow
 
 Let $$f(x,y,z;t) = 0$$ a non-rigidly moving surface captured with a single camera with a projection matrix $\mathbf{P}_i$ and the image sequence $I_i = I_i(u_i, v_i; t)$ captured by the camera. Then, the relation between a point on the surface $\mathbf{x} = (x,y,z)$ and its image coordinates $\mathbf{u}_i = (u_i, v_i)$ is given by:
@@ -51,7 +48,7 @@ This relationship cannot be inverted without prior knowledge about the surface $
 
 $$ \left. \frac{d\mathbf{x}}{dt} = \frac{\partial \mathbf{x}}{\partial \mathbf{u}_i} \frac{d\mathbf{u}_i}{dt} + \frac{\partial \mathbf{x}}{\partial t} \right |_{\mathbf{u}_i} $$
 
-There are two components which contribute to the motion of the point $\mathbf{x}$:
+There are two components which contribute to the motion of the point $$\mathbf{x}$$:
 
 - The projection of the scene flow on the plane tangent to the surface taking the optical flow backprojected into the scene using the inverse Jacobian.
 - The three-dimensional motion of the point in the scene projected in a fixed pixel which is the instantaneous motion of $\mathbf{x}$ along the ray to $\mathbf{u}_i$ such that the value is proportional to the rate of change of the depth of the surface along the ray.
