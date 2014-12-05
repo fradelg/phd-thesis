@@ -2,7 +2,6 @@
     "title": "Real Time 3D Reconstruction from Monocular Video",
     "description": "PhD thesis in the University of Valladolid",
     "plugins": [
-        "mathjax",
         "katex"
     ],
     "pluginsConfig": {}
