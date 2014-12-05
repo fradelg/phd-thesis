@@ -13,7 +13,7 @@
 ## 2nd week
 
 - Studying Dense Tracking and Mapping (DTAM) implementation by @newcombe2010dtam
-    - Base mesh is build over sparse point cloud from PTAM by the polygonalization of the function's zero level set of a function $f$ fit to the data points $$\mathbb{R}^3 \rightarrow \mathbb{R}, f(x) = 0$$
+    - Base mesh is build over sparse point cloud from PTAM by the polygonalization of the function's zero level set of a function $$f$$ fit to the data points $$\mathbb{R}^3 \rightarrow \mathbb{R}, f(x) = 0$$
     - Model predictive optical flow using projected images from the base model
     - Use of dense TVL1 optical flow implementation to track pixels
     - Mesh optimization using scene flow to compute vertex updates $$\triangle \mathbf{x}_j$$ which lie in the ray from the reference camera intersecting the base model vertex $$\mathbf{x}_j$$
@@ -32,6 +32,6 @@
 
 - Removed submodule dependencies from OpenCV and OpenMVG: they increses project complexity and at currently they are not modified
     - In fact, QtCreator does not recognize the OpenCV INCLUDEPATH using submodules
-- Debugging triangulation procedures to reduce the high Mean Reprojection Error (around 1000 pixels!)
+- Debugging triangulation procedures to reduce the high Mean Reprojection Error (from 1000 to less than 1.0!)
 
 ## References
