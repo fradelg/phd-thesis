@@ -1,6 +1,6 @@
 The optical flow introduces a two-dimensional motion field over the image plane. It is the projection of a three-dimensional motion in the world which, in a non-rigid scene, can be represented as a dense 3D vector field for every point in the scene. This concept was defined by the term "scene flow" by @vedula1999sceneflow
 
-Let $$f(x,y,z;t) = 0$$ a non-rigidly moving surface captured with a single camera with a projection matrix $\mathbf{P}_i$ and the image sequence $I_i = I_i(u_i, v_i; t)$ captured by the camera. Then, the relation between a point on the surface $\mathbf{x} = (x,y,z)$ and its image coordinates $\mathbf{u}_i = (u_i, v_i)$ is given by:
+Let $$f(x,y,z;t) = 0$$ a non-rigidly moving surface captured with a single camera with a projection matrix $$\mathbf{P}_i$$ and the image sequence $$I_i = I_i(u_i, v_i; t)$$ captured by the camera. Then, the relation between a point on the surface $$\mathbf{x} = (x,y,z)$$ and its image coordinates $$\mathbf{u}_i = (u_i, v_i)$$ is given by:
 
 $$ \mathbf{u}_i = \mathbf{P}_i \mathbf{x}$$
 
