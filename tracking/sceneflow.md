@@ -25,9 +25,11 @@ where $C$ depends upon the diameter of the lens and the distance between the len
 
 ## Optical Flow
 
-Suppose that the 2D path of a point over the image of the $i$-th camera is $\mathbf{u}_i(t)$, the optical flow is $$\frac{d\mathbf{u}_i}{dt}$$
+Suppose that the 2D path of a point over the image of the $$i-th$$ camera is $$\mathbf{u}_i(t)$$, the optical flow is $$\frac{d\mathbf{u}_i}{dt}$$
 
-Assuming that the point $\mathbf{x}(t)$ moves on the surface, this albedo remains constant such that $$ \frac{d\rho}{dt} = 0 $$
+Assuming that the point $$\mathbf{x}(t)$$ moves on the surface, this albedo remains constant such that 
+
+$$ \frac{d\rho}{dt} = 0 $$
 
 The following equation is the basis for optical flow computation in algorithms
 
