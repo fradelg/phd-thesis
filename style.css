@@ -1,0 +1,117 @@
+body {
+  line-height: 1.5;
+}
+blockquote {
+  color: #777;
+  border-left: 5px solid;
+  padding-left: 1em;
+  font-style: italic;
+}
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: justify;
+  font-size: 14px;
+}
+.content > header {
+  font-size: 1.2em;
+  text-align: center;
+}
+.authors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.authors li {
+  display: inline-block;
+  padding: 10px 1em;
+}
+.abstract {
+  font-size: 0.95em;
+  padding: 3em;
+  line-height: 1.2em;
+}
+.abstract: before {
+  content: "Abstract";
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border: 2px solid;
+}
+td,
+th {
+  border: 2px solid;
+  padding: 5px;
+  box-shadow: inset 0 1px 1px white;
+}
+th {
+  text-align: center;
+}
+.highlighter {
+  position: absolute;
+  border-bottom: 2px solid orangered;
+  top: -10px;
+  left: 2%;
+  width: 96%;
+  box-shadow: 0 1px 1px white;
+}
+.last-change-marker {
+  box-shadow: 1px 0 0 1px rgba(255, 69, 0, 0.5);
+}
+img {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+figure {
+  padding: 1em 0;
+}
+figcaption {
+  text-align: center;
+  width: 100%;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+h1 {
+  margin: 0.6em 0;
+  font-size: 2.5em;
+  line-height: 1.5em;
+}
+h2 {
+  margin: 0.8em 0;
+  font-size: 1.7em;
+  line-height: 0.8em;
+}
+h3 {
+  margin: 1em 0;
+  font-size: 1.5em;
+  line-height: 1em;
+}
+h4 {
+  margin: 1em 0;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+h5 {
+  margin: 1.3em 0;
+  font-size: 1.1em;
+  line-height: 1.3em;
+}
+h6 {
+  margin: 1.5em 0;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.antique body {
+  background: -webkit-linear-gradient(top, rgba(250, 235, 215, 0.3), rgba(250, 235, 215, 0.3)), url("fabric_plaid.png");
+  font-family: Overlock, Georgia;
+  color: #333;
+  text-shadow: 0 1px 1px #fff;
+}
+.math {
+  font-family: Palatino;
+}
