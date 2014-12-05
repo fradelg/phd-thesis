@@ -1,4 +1,4 @@
-# September
+# July
 
 ## 1st and 2nd week
 
