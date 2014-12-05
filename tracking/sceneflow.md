@@ -11,7 +11,7 @@ The differential relationship between $x$ and $u_i$is represented by the Jacobia
 
 $$\triangle \mathbf{u}_i = J_i \triangle \mathbf{x}$$
 
-The *plenoptic function* $E := E(\mathbf{m};\mathbf{x};t)$ represents the irradiance or illumination flux measured at the position $\mathbf{x}$ in the direction $\mathbf{m}$ at time $t$. The net directional irradiance of light $s$ is defined as the surface integral of the irradiance $E$ over the visible hemisphere of all possible directions from which light can fall on a surface patch with a surface normal $\mathbf{n}$
+The *plenoptic function* $$E := E(\mathbf{m};\mathbf{x};t)$$ represents the irradiance or illumination flux measured at the position $\mathbf{x}$ in the direction $\mathbf{m}$ at time $t$. The net directional irradiance of light $s$ is defined as the surface integral of the irradiance $E$ over the visible hemisphere of all possible directions from which light can fall on a surface patch with a surface normal $\mathbf{n}$
 
 $$s(\mathbf{x};t) := \int_{S(n)} E(\mathbf{x};\mathbf{m}; t)d\mathbf{m}$$
 
