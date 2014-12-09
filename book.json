@@ -2,8 +2,7 @@
     "title": "Real Time 3D Reconstruction from Monocular Video",
     "description": "My PhD thesis in Computer Science at University of Valladolid",
     "plugins": [
-        "mathjax",
-        "autocover"
+        "mathjax"
     ],
     "pluginsConfig": {}
 }
