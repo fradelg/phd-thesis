@@ -4,9 +4,7 @@ November
 1st week
 --------
 
--   Preparing some posters and other graphic materials to expose in
-    [AR&PA
-    2014](http://www.jcyl.es/web/jcyl/ARPA/es/Plantilla66y33/1267295103271/_/_/_)
+-   Preparing some posters and other graphic materials to expose in [AR&PA 2014](http://www.jcyl.es/web/jcyl/ARPA/es/Plantilla66y33/1267295103271/_/_/_)
     (to be held in two weeks)
 -   Studying the interesting solution for colume cost computation using
     octrees from @Steinbr2014 titled "Volumetric 3D Mapping in Real-Time
