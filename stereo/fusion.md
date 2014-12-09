@@ -14,13 +14,13 @@ $$ E(u) = \int_{\Omega}{ \{ |\nabla u| + \lambda \sum_{i}{|u - f_i|} \} d\vec{x}
 
 The resulting function $u : \Omega \rightarrow \mathbb{R}$ is the final signed distance to the fused model such that the surface can be computed using any surface polygonalization method (marching cubes, e.g.)
 
-The data term can be efficently computed by weighting the frequency $n_i$ for the bin $i$ to evenly spaced discrete values $c_i$ as $\sum_i{n_i|u-c_i|}$ in the histogram of each voxel, i.e. how often the value $c_i$ occurred in the distance field $f_i$ of the current voxel. The expensive generalized thresholding step is performed using a simple and fast descent step.
+The data term can be efficiently computed by weighting the frequency $n_i$ for the bin $i$ to evenly spaced discrete values $c_i$ as $\sum_i{n_i|u-c_i|}$ in the histogram of each voxel, i.e. how often the value $c_i$ occurred in the distance field $f_i$ of the current voxel. The expensive generalized thresholding step is performed using a simple and fast descent step.
 
 Another approach to minimize the functional is to use the first-order primal-dual algorithm from @chambolle2011first which minimize without performing any approximation. The algorithm performs a gradient descent step in the $u$ variable while performing a gradient ascent steps in the dual variable $p: \Omega \rightarrow \mathbb{R}^3$
 
 $$ max_{||p||_{\infty} < 1} = \{ - \int_{\Omega} u\,div\,p + \lambda \sum_{i}{\int_{\Omega}n_i|u(x) - c_i|d\vec{x}} \} $$
 
-In each step, the algorithm estimates the new value of $u$ and $p$ using the following equiations
+In each step, the algorithm estimates the new value of $u$ and $p$ using the following equations
 
 $$ u^{n+1} = prox_{hist}(u^n - \tau(-div\,p^n)) $$
 

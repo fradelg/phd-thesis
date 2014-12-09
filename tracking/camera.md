@@ -64,7 +64,6 @@ x \\ y \\ d \\ 1
 \end{array} \right]
 $$
 
-
 where $(c_x, c_y)$ is the principal point of the camera, $T_x$ is the baseline between the two cameras and $f$ is the focal length in mm.
 
 ### References
