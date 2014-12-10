@@ -7,7 +7,7 @@ A camera can be approximated by a projective model. We use the classic pinhole p
 - a lens with a focal length, center of projection and radial and barrel distortions
 - a camera frame, with a position and orientation in space
 
-![](http://lfa.mobivap.uva.es/~fradelg/phd/figures/pinhole.svg "Pinhole camera model")
+![](../figures/pinhole.svg "Pinhole camera model")
 
 The projection is represented by two set of parameters called intrinsic and extrinsic parameters. Intrinsic parameters allows to model the optic component considering distortions and aberrations introduced by the lens in the image. Extrinsic parameters represent the camera position and orientation. Then, the projection matrix $\mathbf{P}$ can be decomposed into two basic matrices:
 
@@ -41,7 +41,7 @@ $$ C = −R^{-1}t = −R^{\top}t $$
 
 ## Calibration
 
-Intrinsics parameters for a given camera can be computed using the algorithm from @zhang2000flexible implemented by OpenCV. Lens transforms a point $r$ in the theoretical image plane into a point $r'$  over the real image plane according to the FOV-model explained by @devernay2001straight. The next equations explains how distortions affects pixel coordinates:
+Intrinsics parameters for a given camera can be computed using the algorithm from @zhang2000flexible implemented by OpenCV. Lens transforms a point $r$ in the theoretical image plane into a point $r'$ over the real image plane according to the FOV-model as it was explained by @devernay2001straight. The next equations describe how distortions affect pixel coordinates:
 
 $$ \mathbf{P} \left(\begin{array}{c} x \\ y \\ z \\ 1 \end{array} \right) = \left(\begin{array}{c} u_0 \\ v_0 \end{array} \right) + \left[\begin{array}{cc} f_u & 0 \\ 0 & f_v \end{array} \right]\frac{r'}{r} \left(\begin{array}{c} x/z \\ y/z \end{array} \right)$$
 $$ r = \sqrt{\frac{x^2 + y^2}{z^2}} $$

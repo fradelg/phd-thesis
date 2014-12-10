@@ -8,7 +8,7 @@ The projections of a 3D point $\mathbf{x}$ over images are always related by the
 
 $$ \mathbf{x'^T}\mathbf{F}\mathbf{x} = 0 $$
 
-![](http://lfa.mobivap.uva.es/~fradelg/phd/figures/epipolar.svg "Epipolar constraints between two camera view")
+![](../figures/epipolar.svg "Epipolar constraints between two camera view")
 
 Adding intrinsic parameters with $\mathbf{K}$ to the fundamental matrix gives a metric "object" such that the image points can be related by the essential matrix $\mathbf{E}$.
 
@@ -37,13 +37,13 @@ In some cases an alternative formulation of the translation vector can be used i
 
 $$ [\mathbf{t}]_{\times} = \mathbf{V} \mathbf{W}^{-1} \mathbf{V}^{T}$$
 
-If the scene is planar ($\mathbf{T} = 0$) the points are related by a simple homography $H$ such that $\mathbf{x}'=\mathbf{H}\mathbf{x}$.
+If the scene is planar ($\mathbf{T} = 0$) the points are related by a simple homography $H$ such that $\mathbf{x}'=\mathbf{H}\mathbf{x}$
 
 ## Triangulation
 
 The triangulation problem consists of computing the 3D point $\mathbf{X}$ from two point $\mathbf{x}, \mathbf{x}'$ and the camera projection $\mathbf{P}, \mathbf{P}'$ from two different views. The problem is that in the presence of noise back projected rays do not intersect. There are different solutions according to @hartley1997triangulation
 
-![](http://lfa.mobivap.uva.es/~fradelg/phd/figures/triangulation.svg "The triangulation problem")
+![](../figures/triangulation.svg "The triangulation problem")
 
 - Compute the mid-point of the shortest line between the two projection rays using vector
 - Compute the **linear** triangulation using linear algebra, where $X$ can be solved up to scale. However the value being minimized has no geometric meaning and multiplying the equations by some weights will change the solution. The **iterative** approach reweights the linear equations adaptively so that this equations correspond to errors in point coordinates. The main advantage of these methods is that they are easy to implement but convergence is not always guaranteed. The iterations can be applied over two different linear methods:
@@ -59,7 +59,7 @@ Even when minimization appears to be over the three parameters of $\mathbf{X}$, 
 
 Triangulation can be applied from two to $n$ views so that there are more equations to overdetermine the linear system. In such case, the Direct Linear Transform (DLT) algorithm can be applied:
 
-![](http://lfa.mobivap.uva.es/~fradelg/phd/figures/triangulation-n.svg "Triangulation of a point seen from multiple views")
+![](../figures/triangulation-n.svg "Triangulation of a point seen from multiple views")
 
 1. For each correspondence $(\mathbf{x},\mathbf{x}')$ build matrix $\mathbf{A}_i$ with at least the first two rows
 2. Join $2n \times 9$ matrices $\mathbf{A}_i$ into a single $\mathbf{A}$

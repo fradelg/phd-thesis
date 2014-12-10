@@ -4,5 +4,12 @@
     "plugins": [
         "mathjax"
     ],
-    "pluginsConfig": {}
+
+    "pluginsConfig": {
+      "fontSettings": {
+        "theme": "sepia",
+        "family": "sans",
+        "size": 1
+      }
+    }
 }
