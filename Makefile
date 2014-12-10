@@ -3,14 +3,14 @@ PANDOC = pandoc
 GITBOOK = gitbook
 OPTS = --mathjax --template=template.html
 BIB = bibtex
-BIBFILE = book.bib
+BIBFILE = thesis.bib
 BIBSTYLE = cad.csl
 BIBOPTS = --biblio $(BIBFILE) -cls $(BIBSTYLE)
 
 SERVER = 157.88.193.20
 USER = fradelg
 LOCALDIR = _book/
-FIGUREDIR = ../figures/
+FIGUREDIR = figures/
 REMOTEDIR = /home/fradelg/www/phd/
 
 SRC = $(shell find . -type f -name '*.md')

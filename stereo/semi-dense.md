@@ -19,8 +19,7 @@ The depth map is updated as follows:
 
  1. A subset of pixels is selected for which the accuracy of a disparity search is sufficiently large. To achieve this goal three efficient local criteria are used to determine for which pixel a stereo update is worth the computational cost.
 
-  * the photometric disparity error $\sigma^2_{\lambda(\epsilom,\pi)$, depending on the magnitude of the image gradient along the
- epipolar line
+  * the photometric disparity error $\sigma^2_{\lambda(\xi,\pi)}$, depending on the magnitude of the image gradient along the epipolar line
   * the geometric disparity error $\sigma^2_{\lambda(I)}$, depending on the angle between the image gradient and the epipolar line
   * the pixel to inverse depth ratio $\alpha$, depending on the camera translation, the focal length and the pixel’s position.
 
@@ -28,7 +27,7 @@ The depth map is updated as follows:
  3. The inverse depth estimation is performed by searching the pixel’s intensity along the epipolar line in the selected reference frame. Then a sub-pixel accurate localization of the matching disparity is performed. If a prior inverse depth hypothesis is available, the search interval is limited by $d ± 2 \sigma_d$, where $d$ and $\sigma_d$ denote the mean and standard deviation of the prior hypothesis. Otherwise, the full disparity range is searched. The error is calculated with SSD over five equidistant points on the epipolar line.
  4. The depth estimation is fused into the global depth map as follows: if there is not a prior hypothesis about depth, the value is initialized with the observation; otherwise the two distributions are multiplied simulating the update step in a Kalman filter such that given a prior distribution $N(d_p, \sigma_p^2)$ and a noisy observation $N(d_o, \sigma_o^2)$, the posterior is given by:
 
-$$ \mathbb{N}(frac{\sigma^2_p d_o + \sigma^2_o d_p}{\sigma^2_p + \sigma^2_o}, \frac{\sigma^2_p \sigma^2_o}{\sigma^2_p + \sigma^2_o}) $$
+$$ \mathbb{N}(\frac{\sigma^2_p d_o + \sigma^2_o d_p}{\sigma^2_p + \sigma^2_o}, \frac{\sigma^2_p \sigma^2_o}{\sigma^2_p + \sigma^2_o}) $$
 
 ## Propagation
 
@@ -38,13 +37,13 @@ $$ d_1(d_0) = (d_0^{−1} - t_z)^{-1}$$
 
 where $t_z$ is the camera translation along the optical axis. The variance of $d_1$ is defined as:
 
-$$ \sigma^2_{d_1} = J_{d_1} \sigma^2_{d_0} J^T_{d_1} + \sigma^2_{p} = (\frac{d_1}{d_0})^4 \sigma^2_{d_0} + \sigma^2_{p}
+$$ \sigma^2_{d_1} = J_{d_1} \sigma^2_{d_0} J^T_{d_1} + \sigma^2_{p} = (\frac{d_1}{d_0})^4 \sigma^2_{d_0} + \sigma^2_{p} $$
 
 where $\sigma^2_{p}$ is the prediction uncertainty (the prediction step in an extended Kalman filter). It can be seen as keeping the variance on the z-coordinate of a point fixed $\sigma^2_{z_0} = \sigma^2_{z_1}$
 
 In the case of two inverse depth hypothesis are propagated to the same pixel there are two alternatives
  1. they are fused as two independent observations of the pixel’s depth if they lie within $2\sigma$ bounds
- 2. otherwise, the furthest point is assumed to be occluded so it is removed
+ 2. otherwise, it is assumed that the furthest point is assumed so it is removed
 
 ## Regularization
 
@@ -59,10 +58,14 @@ If the probability that all contributing neighbors are outliers rises above a gi
 
 The semi-dense inverse depth map for the current camera image can be used for estimating the camera pose of the next frame. Dense tracking is preformed using dense image alignment [REF] based on the direct minimization of the photometric error:
 
-$$ r_i(\epsilom) := ( I_2 (w(\mathbf{x}_i, d_i, \epsilom_i)) − I_1 (x_i))^2 $$
+$$ r_i(\xi) := ( I_2 (w(\mathbf{x}_i, d_i, \xi_i)) − I_1 (x_i))^2 $$
 
-where the warp function $$ w : \sigma_1 × \mathbb{R} × \mathbb{R}^6 → \sigma_2 $$ maps each point $x_i \in \sigma_1} in the reference image $I_1$ to the respective point $w(x_i, d_i, \epsilom) \in \sigma_2$$ in the new image $I_2$. As input it only requires the 3D pose of the camera $\epsilom \in \mathbb{R}^6$ and uses the estimated inverse depth $d_i \in \mathbb{R}$ for the pixel in $I_1$. The final energy term to minimize is:
+where the warp function
 
-$$ E(\epsilom) := \sum_{i} \frac{\alpha(r_i(\epsilom))}{\sigma^{2}_{d_i}} r_i(\epsilom)
+$$ w : \sigma_1 \times \mathbb{R} \times \mathbb{R}^6 \rightarrow \sigma_2 $$
 
-where $\alpha: \mathbb{R} \rightarrow \mathbb{R} weights each residual.
+maps each point $x_i \in \sigma_1$ in the reference image $I_1$ to the respective point $w(x_i, d_i, \xi) \in \sigma_2$ in the new image $I_2$. As input it only requires the 3D pose of the camera $\xi \in \mathbb{R}^6$ and uses the estimated inverse depth $d_i \in \mathbb{R}$ for the pixel in $I_1$. The final energy term to minimize is:
+
+$$ E(\xi) := \sum_{i} \frac{\alpha(r_i(\xi))}{\sigma^{2}_{d_i}} r_i(\xi)$$
+
+where $\alpha: \mathbb{R} \rightarrow \mathbb{R}$ weights each residual.
