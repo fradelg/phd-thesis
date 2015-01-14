@@ -1,6 +1,6 @@
 # Semi-dense depth maps
 
-The feature-based methods for monocular reconstruction makes an abstraction of the problem which reduces its complexity and allows it to be tackled in real time. However, they introduces two significant drawbacks
+Monocular reconstruction from image features makes an abstraction of the problem which reduces its complexity and allows it to be tackled in real time. However, they introduces two significant drawbacks
 
  1. Only a small portion of the image information conforming to the respective feature type and parametrization is utilized
  2. Feature matching requires the costly computation of scale- and rotation-invariant descriptors and robust outlier estimation methods like RANSAC
