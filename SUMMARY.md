@@ -11,6 +11,8 @@
 	* [October](activities/2014/october.md)
 	* [November](activities/2014/november.md)
 	* [December](activities/2014/december.md)
+* [2015](activities/2015/README.md)
+	* [January](activities/2015/january.md)
 * [Visual Tracking](tracking/README.md)
 	* [Camera](tracking/camera.md)
 	* [Multiple View Geometry](tracking/multiview.md)

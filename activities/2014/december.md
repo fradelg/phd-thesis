@@ -43,3 +43,8 @@ December
 
 ![live-depthmap](../../figures/lsd-slam/depthmap-live.jpg "The generated semi-dende depth map with the live webcam")
 ![bag-depthmap](../../figures/lsd-slam/depthmap-bag.jpg "The generated semi-dende depth map with the dataset from the author")
+
+4th week
+--------
+
+- Christmas Holydays!
