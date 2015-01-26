@@ -11,6 +11,9 @@
 	* [October](activities/2014/october.md)
 	* [November](activities/2014/november.md)
 	* [December](activities/2014/december.md)
+* [2015](activities/2015/README.md)
+	* [March](activities/2015/january.md)
+
 * [Visual Tracking](tracking/README.md)
 	* [Camera](tracking/camera.md)
 	* [Multiple View Geometry](tracking/multiview.md)
@@ -20,6 +23,7 @@
 	* [Total Variation](tracking/tv.md)
 	* [Stereo Matching](tracking/stereo.md)
 	* [Volumetric Depth Fusion](tracking/fusion.md)
+
 * [Appendix](notes/README.md)
 	* [A general framework](notes/framework.md)
 	* [Reconstruction and Recognition](notes/rec2rec.md)
