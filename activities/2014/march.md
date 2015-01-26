@@ -18,7 +18,7 @@ $$ \mathbf{E} = \mathbf{K'^T}\mathbf{F}\mathbf{K} $$
 ### 2nd week
 
 - Installing a basic WebCam with a resolution of 1280x720
-![WebCam Creative HD Live Sync](figures/creative-hd-webcam.jpg)
+![WebCam Creative HD Live Sync](../../figures/creative-hd-webcam.jpg)
 
 - Calibration using OpenCV [tool](http://docs.opencv.org/trunk/doc/tutorials/calib3d/camera_calibration/camera_calibration.html) based on @zhang2000flexible
 

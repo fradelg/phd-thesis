@@ -3,15 +3,15 @@ PANDOC = pandoc
 GITBOOK = gitbook
 OPTS = --mathjax --template=template.html
 BIB = bibtex
-BIBFILE = book.bib
+BIBFILE = thesis.bib
 BIBSTYLE = cad.csl
 BIBOPTS = --biblio $(BIBFILE) -cls $(BIBSTYLE)
 
 SERVER = 157.88.193.20
 USER = fradelg
-LOCALDIR = _book/
-FIGUREDIR = ../figures/
-REMOTEDIR = /home/fradelg/www/phd/
+LOCALDIR = _book
+FIGUREDIR = figures
+REMOTEDIR = /home/fradelg/www/phd
 
 SRC = $(shell find . -type f -name '*.md')
 HTML1 = $(filter-out ./README.md, $(SRC))
@@ -35,7 +35,7 @@ $(TARGET).epub: $(SOURCES)
 	$(PANDOC) $(OPTS) $(BIBOPTS) -o $(TARGET).epub $(SOURCES)
 
 %.html: %.md
-	@echo "Pandoc building: $<"
+	@echo "Pandoc building for file $<"
 	@$(PANDOC) $(OPTS) $(BIBOPTS) -o tmp.html $<
 	@tail -n +371 tmp.html > tail.html
 	@sed -i -ne '/<section/ {p; r tail.html' -e ':a; n; /<\/section>/ {p; b}; ba}; p' _book/$@
@@ -46,4 +46,4 @@ clean:
 
 upload:
 	rsync -rvzhe ssh $(LOCALDIR) $(USER)@$(SERVER):$(REMOTEDIR)
-	rsync -rvzhe ssh $(FIGUREDIR) $(USER)@$(SERVER):$(REMOTEDIR)figures/
+#	rsync -rvzhe ssh $(FIGUREDIR) $(USER)@$(SERVER):$(REMOTEDIR)/figures/

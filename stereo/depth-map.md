@@ -1,6 +1,6 @@
 # Depth Map Estimation
 
-A depth map is an image representing the depth of each pixel instead of the RGB intensity as usual. Pixel depth can be estimated using several approaches taking into account the capturing device and the kind of available data. In our approach we can estimate depth based on **stereo matching** across the current frame and a previous key frame. Only those key frames introducing a good number of overlapping features and a significant baseline will be selected.
+A depth map is an image representing the depth of each pixel instead of the RGB intensity as usual. Pixel depth can be estimated using several approaches depending on the capturing device and the kind of available data. In our approach we can estimate depth based on **stereo matching** across the current frame and a previous key frame. Only those key frames introducing a good number of overlapping features and a significant baseline will be selected.
 
 Stereo matching consists of finding corresponding pixels between two images $I$, $I'$ taken from two different viewpoints with lens distortions removed. Here, the goal is to locate two pixels (one for each image) from the same physical object which gives a depth value for each pixel $i = (u, v) \in I$ that has minimal costs $C$ among all possible depth values $d \in D$
 
@@ -24,6 +24,6 @@ Stereo algorithms can be divided into two main categories:
 
 - **Local** stereo algorithms search corresponding pixels evaluating the correlation between local image patches. The correlation function to evaluate the quality of the correspondence can be viewed as a filter. For instance, the sum of absolute differences (SAD) corresponds to a simple box filter, which can be easily parallelized as in @gallup2009cuda. Most recent approaches weight each pixel in the mask filter based on image edges, e.g. based on bilateral filtering [@yang2013bilateral] or guided image filtering [@hosni2013fast]. However, these approaches only show good performance for a low number of depth values giving a low depth precision.
 
-![kinectfusion](http://lfa.mobivap.uva.es/~fradelg/phd/figures/stereo-face.png "Block Matching Stereo over two short baseline frames")
+![kinectfusion](./figures/stereo-face.png "Block Matching Stereo over two short baseline frames")
 
 ## References

@@ -13,7 +13,7 @@
 ## 2nd week
 
 - Studying Dense Tracking and Mapping (DTAM) implementation by @newcombe2010dtam
-    - Base mesh is build over sparse point cloud from PTAM by the polygonalization of the function's zero level set of a function $$f$$ fit to the data points $$\mathbb{R}^3 \rightarrow \mathbb{R}, f(x) = 0$$
+    - Base mesh is build over sparse point cloud from PTAM by the polygonalization of the function's zero level set of a function $f$ fit to the data points $$\mathbb{R}^3 \rightarrow \mathbb{R}, f(x) = 0$$
     - Model predictive optical flow using projected images from the base model
     - Use of dense TVL1 optical flow implementation to track pixels
     - Mesh optimization using scene flow to compute vertex updates $$\triangle \mathbf{x}_j$$ which lie in the ray from the reference camera intersecting the base model vertex $$\mathbf{x}_j$$
@@ -26,7 +26,7 @@
 ## 4th week
 
 - Testing feature tracking based on FAST detector combined with fast matching using ZNCC search
-- ORB and FAST feature detectors are tested in the GPU. Both are fast and more stable than the goodfeaturestotrack
+- ORB and FAST feature detectors are tested in the GPU. Both are fast and more stable than the `goodfeaturestotrack`
 
 ## 5th week
 

@@ -8,8 +8,8 @@
 - Added a wrapper to interoperate with OpenCV `cv::Mat` from [Roy Shilkrot](http://web.media.mit.edu/~roys/src/OpenNI2OpenCVInterop.h), a PhD student @ MIT Media Lab
 	+ Tweaked conversion of depth map using 1/32 scale instead 1/4 to achieve a wider range of values (the original solution only provides binary images!)
 
-![kinectrgb](figures/video_rgb.avi "Kinect RGB output example")
-![pkinectdepth](figures/video_depth.avi "Kinect Depth output example")
+![kinectrgb](../../figures/video_rgb.avi "Kinect RGB output example")
+![pkinectdepth](../../figures/video_depth.avi "Kinect Depth output example")
 
 ### 2nd week
 

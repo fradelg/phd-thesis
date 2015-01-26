@@ -22,7 +22,7 @@
 - Studying and documenting a general framework to feedback reconstruction and recognition (see `rec2rec.md` for more information)
 - Recorded a video demoing the camera tracking using the OpenCV essential estimator
 
-![tracking](http://lfa.mobivap.uva.es/~fradelg/phd/figures/tracking.avi "Camera tracking demo using a moving cube")
+![tracking](../../figures/tracking.avi "Camera tracking demo using a moving cube")
 
 ### 3rd week
 
@@ -37,6 +37,6 @@
 - Implementation and code review:
 		- Analysis of the [Urho3D](https://github.com/urho3d/Urho3D) project as a C++ rendering engine for future AR applications
 		- Study JNI bridge for executing native ARM code from Java applications in Android
-		- Study optimization procedures in $\mathfrak{SE}(3)$ algebra instead in the $SE(3)$ group
+		- Reading optimization procedures in the $\mathfrak{SE}(3)$ algebra instead in the $SE(3)$ group
 
 #### References

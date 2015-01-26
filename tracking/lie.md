@@ -1,3 +1,7 @@
+<!-- Review ... -->
+The noise affecting the tracking system makes necessary to represent transformation matrices using their respective equivalent as Lie groups. But groups are no-linear (every classic group is a differentiable manifold) we have to compute their respective tangent space (its Lie algebra) in which we can optimize parameters using the classical Weighted Laast Squares algorithm. Even when this optimization is taking place in the vectorial space of the Lie algebra, the solutions are vectors in the tangent space. They determine the direction of the the curve passing through the point which is the most meaningful information. The exponential of this vector gives an infinitesimal path of the curve in the group which it is the solution we are looking for.
+<!-- ... till here -->
+
 # Lie algebra and Lie groups
 
 A **lie group**  $G$ is a group with a smooth and differential structure. Its associated **Lie algebra** $\mathfrak{g} := T_{p}G$ is a vector space that represents the tangent space of the group at a point $p \in G$. This tangent space provides a linearization of the Lie group when $p = I$, maintaining most of its properties.
@@ -26,13 +30,13 @@ A basic requirement of the tracking system is that the projection equation must 
 
 $$ M_i = M M_{i-1} = exp(\mu) M_{i-1} $$
 
-where the camera motion is an element of $SE(3)$, the Lie group of rigid transformations in $\mathbb{R}^3$ whose tangent space is represented by the Lie algebra $\mathfrak{se}(3)$. It is important to note that $\mathfrak{se}(3)$ is isomorphic with $\mathbb{R}^6$ such that there exists a map that transforms between both spaces. Thus, this algebra can be parametrized by a vector $\mu = (\omega, \upsilon) \in \mathbb{R}^6$  where $\upsilon \in \mathbb{R}^3$ represent a translation, whereas $\omega \in \mathbb{R}^3$ represent a rotation axis and a rotation angle $\omega$ with its magnitude. These properties allow to enforce all the constraints of $SE(3)$ while keeping the optimization procedures simple on the vector space of $\mathfrak{se}(3) \approx \mathbb{R}^6$
+where the camera motion is an element of $SE(3)$, the Lie group of rigid transformations in $\mathbb{R}^3$, whose tangent space is represented by the Lie algebra $\mathfrak{se}(3)$. It is important to note that $\mathfrak{se}(3)$ is isomorphic with $\mathbb{R}^6$ such that there exists a map that transforms between both spaces. Thus, this algebra can be parametrized by a vector $\mu = (\omega, \upsilon) \in \mathbb{R}^6$  where $\upsilon \in \mathbb{R}^3$ represent a translation, whereas $\omega \in \mathbb{R}^3$ represent a rotation axis and a rotation angle $\omega$ with its magnitude. These properties allow to enforce all the constraints of $SE(3)$ while keeping the optimization procedures simple on the vector space of $\mathfrak{se}(3) \approx \mathbb{R}^6$
 
 There are simpler ways to compute the exponential map for some groups such as $SO(3)$ and $SE(3)$. Using an adaptation of the original Rodrigues formula we can define the exponential map of $SE(3)$ for a matrix $S$ parametrized by $\mu$
 
-$$exp: \mathfrak{se}(3) \rightarrow SE(3)$$
+$$ exp: \mathfrak{se}(3) \rightarrow SE(3) $$
 
-$$exp(S) = I_4 + S + \frac{(1-\cos \theta)S^2}{\theta^2} + \frac{(1-\sin \theta)S^3}{\theta^3}$$
+$$ exp(S) = I_4 + S + \frac{(1-\cos \theta)S^2}{\theta^2} + \frac{(1-\sin \theta)S^3}{\theta^3} $$
 
 $$ S = \left[\begin{array}{cccc}
 0 & -\omega_z & \omega_y & \upsilon_x \\
@@ -75,12 +79,12 @@ The **exponential map** operation ($exp$) allows to convert a Lie algebra $\math
 
 $$ \exp\colon \mathfrak{so}(3) \to \mathrm{SO}(3) $$
 
-Thus, the unit vector $\omega$ and the angle $\theta$ are sometimes called the exponential coordinate of the elementary rotation matrix $\mathbf{R}$. A more "compact" representation of Rodrigues notation can be achieved in $v \in \mathbb{R}^3$ [OpenCV]. The rotation angle $\theta$ is represented as the module of the vector $v$ while the rotation axis is the normalized vector $v/|v|$. Rodrigues and Euler representation of rotations are related but they have singularities and other problems when representing rotations at 180 degrees.
+Thus, the unit vector $\omega$ and the angle $\theta$ are sometimes called the exponential coordinate of the elementary rotation matrix $\mathbf{R}$. A more "compact" representation of Rodrigues notation can be achieved in $v \in \mathbb{R}^3$ [OpenCV]. The rotation angle $\theta$ is represented as the module of the vector $v$ while the rotation axis is the normalized vector $v / |v|$. Rodrigues and Euler representation of rotations are related but they have singularities and other problems when representing rotations at 180 degrees.
 
 ## Euclidean transformations
 
-An Euclidean transformation $E$ is composed by a composition of rotations and translations in the three-dimensional space.  This can be represented using a $3\times4$ matrix operating on homogeneous coordinates, so that a vector $\mathbf{x}$ is transformed to a new location $\mathbf{x}'$ by $ \mathbf{x}' = E \mathbf{x}$
+An Euclidean transformation $E$ is composed by rotations and translations in the three-dimensional space. This can be represented using a $3\times4$ matrix operating on homogeneous coordinates, such that a vector $\mathbf{x}$ is transformed into $\mathbf{x}'$ by $ \mathbf{x}' = E \mathbf{x}$
 
 $$ \begin{bmatrix}x'\\y'\\z'\end{bmatrix} = \begin{pmatrix}r_{11} & r_{12} & r_{13} & t_1\\r_{21} & r_{22} & r_{23} & t_2\\r_{31} & r_{32} & r_{33} & t_3\end{pmatrix}\begin{bmatrix}x\\y\\z\\1\end{bmatrix} $$
 
-This is a 3D rigid body transformation which is a member of the Special Euclidean Lie group $SE(3)$. This group can be parameterised in $\mathbb{R}^3$ by the vector space which supports the Lie Algebra $ \mathfrak{se}(3)$ . Usually, the first three parameters are a translation vector while the second three are a rotation vector, whose direction is the axis of rotation and length the "amount" of rotation (in radians), as for $SO(3)$
+This 3D rigid body transformation is a member of the Special Euclidean Lie group $SE(3)$. This group can be parametrized in $\mathbb{R}^3$ by the vector space which supports the Lie Algebra $ \mathfrak{se}(3)$ . Usually, the first three parameters are a translation vector while the second three are a rotation vector, whose direction is the axis of rotation and length the "amount" of rotation (in radians), as for $SO(3)$

@@ -17,14 +17,14 @@ As the description of the video shows, they use a RGB-D camera to quickly estima
 ## Keypoints
 
 - Use dense map of low quality features
-- Split the mapping and tracking into two different threads
+- Split the mapping and tracking into two different threads as PTAM does [@klein2007parallel]
 - Extract only the relevant keyframes, according to the amount of camera movement
 
 ## Stereo initialization
 
 1. Create an initial map of the scene by bootstrapping the camera pose tracker in just a few frames.
 2. Matching 2D features between the first frame and the current frame using FAST and optical flow
-3. The Essential matrix $ E_{0,i} is computed using RANSAC with the Five Point Algorithm
+3. The Essential matrix $ E_{0,i} is computed using RANSAC with the Five Point Algorithm from @stewenius2006fivepoint
 4. The SVD yields the relative rotation and translation between frames $0$ and $i$
 5. An arbitrary scale factor is applied to the translation vector to determine the scale of the map
 6. Matched features are used to generate a 3D map $M$ by triangulating $N$ landmarks detected

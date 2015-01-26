@@ -30,7 +30,7 @@ November
 --------
 
 -   Augmenting the framework to include scene updating and maintenance
-    in separate threads. The same idea has been used previosly in the
+    in separate threads. The same idea has been used previously in the
     PTAM implementation
 -   Compiling and testing the Open Source alternative to PhotoScan,
     called [MicMac](http://logiciels.ign.fr/?-Micmac,3-), a project from
@@ -47,7 +47,8 @@ November
     environment to allow collaborative editing in our own server
     following the ISPRS guidelines for authors.
 -   Reviewing slides related with my PhD work for the next meeting of
-    the Asturian Cluster of Digital Contents in Gijon (thursday and
-    friday)
+    the [Asturian Cluster of Digital Contents in
+    Gijon](http://www.mobivap.eu/2014/mobivap-en-el-festival-internacional-de-cine-de-xixon)
+    (thursday and friday)
 
 ### References

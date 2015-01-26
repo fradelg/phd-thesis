@@ -24,7 +24,7 @@ $$ \sum{i}{d(\mathbf{x_i}, \hat{\mathbf{x_i}})^2 + d(\mathbf{x'_i}, \hat{\mathbf
 
 ## Five-point relative orientation algorithm
 
-This method uses the minimal set of five point correspondences to compute a finite number of solutions to relative orientations. It gives up to ten real solutions (candidates) which must be filtered.
+This method uses the minimal set of five point correspondences to compute a finite number of solutions to relative orientations. It gives up to ten real solutions (candidates) which must be filtered. Only the solutions whose 3D point cloud is in front of the camera and not rotated are chosen. This is termed as the check of the cheirality of a 3D point with respect to the camera, which is defined as the property of a point that specifies that it lies in front of or behind a given camera. 
 
 There are two basic estimators for the essential matrix $\mathbf{E}$:
 
