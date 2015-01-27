@@ -13,6 +13,7 @@
 	* [December](activities/2014/december.md)
 * [2015](activities/2015/README.md)
 	* [January](activities/2015/january.md)
+	* [February](activities/2015/february.md)
 * [Visual Tracking](tracking/README.md)
 	* [Camera](tracking/camera.md)
 	* [Multiple View Geometry](tracking/multiview.md)
