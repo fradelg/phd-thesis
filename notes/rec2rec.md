@@ -1,6 +1,6 @@
 # A general framework to feedback Recognition with Reconstruction
 
-Some basic concepts from differential topology and algebra:
+First, to provide a clearer guidance throught this document we provide defintions for some basic concepts arising from differential topology and algebra:
 
  - **Topological space**: A collection of open sets which is closed by arbitrary union and finite intersections. In discrete terms it will be represented by  a set of points belonging to a set of neighborhoods for each point allowing the definition of concepts such as continuity, connectedness, and convergence.
  - **Topological group**: is a group equipped with a topology which is compatible. The internal law (binary operation on the group) and the inverse of each element are continuous functions with respect the topology. In a topological group $G$ algebraic operations can be performed at the same time we can study the continuity of the group.
@@ -73,7 +73,7 @@ The above arguments can be easiliy extended for "true" representations (euclidea
 
 In the general case of arbitrary deformations (to compare similar but not identical shapes), it is necessary to work with gauge transformations on fibrations which provide the natural extension of structural groups (classical groups including euclidean, affine, similariity, projective groups) on vector bundles. In the extended case, the tangent space can be viewed as the fiber of a fibration whose base is a general deformation of the configurations space. The latter space can be linearized to recover structure from motion and viceversa in a more general framework including possible deformations. The fibration approach introduces two advantages:
 
- 1. It is a natural extension of well-known approaches, and consequently is valid in the Euclidean space and in the affine space too
+ 1. It is a natural extension of other well-known approaches, and consequently is valid in euclidean and affine spaces
  2. The base application $f$ is not necessarily regular, i.e. $range(\mathbb{J}_f) < inf(n, p)$, which is crucial fact to include pathologies linked to partial occlusions, incomplete information,  degenerated configurations and uncertainty conditions.
 
 As resume a fibration or fiber bundle extends the notion of a vector fiber bundle including different options such as: the fiber of the fibration can be a variety (not necessarily a manifold, including singularities and/or discrete collections of points, e.g.) of arbitrary dimension, such as the geometric elements recovered from 3D reconstruction (points, lines, planes, curves, etc). The same idea is used extensively in the field of [manifold learning](http://www.cse.wustl.edu/~kilian/research/manifold/manifold.html) for non-linear dimensionality reduction (a generalization of the Principal Component Analysis method). In general, the fibers of a fibration can be varieties of arbitrary dimension and shape which can be patched together by lifting the information arising from the base space.

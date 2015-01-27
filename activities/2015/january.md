@@ -70,3 +70,5 @@ January
 --------
 
 - Adding clarifications in the technical documentation according to the suggestions of Javier Finat (thanks!)
+
+### References
