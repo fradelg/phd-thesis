@@ -44,16 +44,17 @@ It is the three-dimensional flow field $\frac{d\mathbf{x}}{dt}$ describing the m
 
 $$ \frac{d\mathbf{u}_i}{dt} = \frac{\partial \mathbf{u}_i}{\partial \mathbf{x}} \frac{d\mathbf{x}}{dt} $$
 
-This relationship cannot be inverted without prior knowledge about the surface $f$. Besides, we need to take into account that $\mathbf{x}$ depends not only on $\mathbf{u}_i$ but also in the time $t$ that affects the surface $f=f(\mathbf{x};t)$. Then, $\mathbf{x} = \mathbf{x}(\mathbf{u}_i(t);t)$ and differentiating this expression with respect to time $t$ we have
+This relationship cannot be inverted without prior knowledge about the surface $f$. Besides, we need to take into account that $\mathbf{x}$ depends not only on $\mathbf{u}_i$ but also in the time $t$ that affects the surface $f = f(\mathbf{x};t)$. Then, $\mathbf{x} = \mathbf{x}(\mathbf{u}_i(t);t)$ and differentiating this expression with respect to time $t$ gives
 
 $$ \left. \frac{d\mathbf{x}}{dt} = \frac{\partial \mathbf{x}}{\partial \mathbf{u}_i} \frac{d\mathbf{u}_i}{dt} + \frac{\partial \mathbf{x}}{\partial t} \right |_{\mathbf{u}_i} $$
 
 There are two components which contribute to the motion of the point $\mathbf{x}$:
 
-- The projection of the scene flow on the plane tangent to the surface taking the optical flow back-projected into the scene using the inverse Jacobian.
-- The three-dimensional motion of the point in the scene projected in a fixed pixel which is the instantaneous motion of $\mathbf{x}$ along the ray to $\mathbf{u}_i$ such that the value is proportional to the rate of change of the depth of the surface along the ray.
+- The projection of the scene flow on the plane tangent to the surface taking the optical flow back-projected into the scene using the inverse Jacobian. This only makes sense when there is a local parametrization of the surface which can be formulated using B-splines or using an alternative parametrization with good properties allowing initial deformations but imposing additional conditions such as conservation of angles, areas or energy functionals.
 
-Taking into account what is known about the scene at each instant, there are three different ways to compute the scene flow:
+- The three-dimensional motion of the point in the scene projected in a fixed pixel which is the instantaneous motion of $\mathbf{x}$ along the ray to $\mathbf{u}_i$ such that the value is proportional to the rate of change of the depth of the surface along the ray. This change can be measured using different kind of metrics: a) Fisher, which provides an statistical version of the Riemannian metrics on manifolds, b) Hausdorff, which is linked to the convex hull of a point cloud. The last metric requires to compute the boundary of the objects using moments of low degree (2 or 3) which can be implemented with a mixture of gaussians as estimators.
+
+There are three different ways to compute the scene flow taking into account the information about the scene at each instant:
 
 1. The structure of the scene is known at every second including surface normals, depth maps and their rate of change.
 2. Only stereo correspondences are known such that the depth maps can be obtained.
