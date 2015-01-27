@@ -8,4 +8,4 @@ At a first step, the research is focused only on interior scenes with closed loo
 
 Results could be applied to medicine, architecture, forestry, robotics or audiovisual production, among others.
 
-![kinectrgb](figures/kinect-fusion.jpg "Output from 3D reconstruction performed by Kinect Fusion")
+![kinectrgb](figures/lsd-slam/pointcloud-live.jpg "Output from 3D reconstruction performed by Kinect Fusion")
