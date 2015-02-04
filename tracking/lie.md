@@ -2,11 +2,11 @@
 The noise affecting the tracking system makes necessary to represent transformation matrices using their respective equivalent as Lie groups. But groups are no-linear (every classic group is a differentiable manifold) we have to compute their respective tangent space (its Lie algebra) in which we can optimize parameters using the classical Weighted Laast Squares algorithm. Even when this optimization is taking place in the vectorial space of the Lie algebra, the solutions are vectors in the tangent space. They determine the direction of the the curve passing through the point which is the most meaningful information. The exponential of this vector gives an infinitesimal path of the curve in the group which it is the solution we are looking for.
 <!-- ... till here -->
 
-# Lie algebra and Lie groups
+# Lie groups and algebras
 
-A **lie group**  $G$ is a group with a smooth and differential structure. Its associated **Lie algebra** $\mathfrak{g} := T_{p}G$ is a vector space that represents the tangent space of the group at a point $p \in G$. This tangent space provides a linearization of the Lie group when $p = I$, maintaining most of its properties.
+A **lie group** $G$ is a topological group which is also a smooth manifold with differential structure. The associated **Lie algebra** $\mathfrak{g} := T_{p}G$ is a vector space that represents the tangent space of the group at a point $p \in G$. This tangent space provides a linearization of the Lie group when $p = I$, maintaining most of its properties. A Lie group and its Lie algebra are intimately related, allowing calculations in one to be mapped usefully into the other
 
-The special orthogonal Lie group called $SO(3)$ represents all rotations about the origin of the three-dimensional euclidean space $\mathbb{R}^3$. It is given as the set of all orthogonal matrices with unit determinant, i.e.
+The special orthogonal group called $SO(3)$ represents all rotations about the origin of the three-dimensional euclidean space $\mathbb{R}^3$. It is given as the set of all orthogonal matrices with unit determinant, i.e.
 
 $$ A \in SO(3) \iff AA^T = I, \quad det(A) = 1$$
 
@@ -14,9 +14,9 @@ It is also a subgroup of the general linear group $GL(3)$ of regular matrices. I
 
 $$ [A,B] = AB - BA $$
 
-The commutator is skew-symmetric $[A,B]  = - [B, A] $ and verifies the Jacobi identity:
+The commutator is skew-symmetric $ [A,B]  = - [B, A] $ and verifies the Jacobi identity:
 
-$$[[A,B], C] + [[B, C], A] + [[C,A], B] = 0$$
+$$ [[A,B], C] + [[B, C], A] + [[C,A], B] = 0 $$
 
 which characterize an abstract Lie algebra structure.
 
@@ -26,11 +26,21 @@ $$exp(A) = \sum_{k \ge 0}{\frac{A^k}{k!}}$$
 
 ## 3D rigid body transformations
 
-A basic requirement of the tracking system is that the projection equation must be differentiable with respect to changes in camera pose. Changes to camera pose are represented by left-multiplication with a camera motion $M \in \mathbb{R}^{4 \times 4}$ given by
+The group of rigid transformations in 3D space $SE(3)$ is represented by linear transformations on homogeneous four-vectors. They are used to represent camera motion between several keyframes in tracking systems.
+
+$$ R \in SO(3), t \in \mathbb{R}^3 $$
+$$ C = \left( \begin{array}{cc} \mathbf{R} & \mathbf{t} \\ \mathbf{0} & 1 \end{array} \right) \in SE(3) $$
+
+The group of similarity transformations in 3D space $Sim(3)$ combines the scale to the rigid transformation. As $SE(3)$, it is represented by linear transformations on homogeneous 4-vectors, with 7 degrees of freedom so its Lie algebra is a vector space of dimension 7. It has a nearly identical representation to $SE(3)$, with an additional scale factor:
+
+$$ R \in SO(3), t \in \mathbb{R}^3, s \in \mathbb{R} $$
+$$ T = \left( \begin{array}{cc} \mathbf{R} & \mathbf{t} \\ \mathbf{0} & s^{-1} \end{array} \right) \in Sim(3) $$
+
+A basic requirement of the tracking system is that the projection equation must be differentiable with respect to changes in camera pose which are represented by left-multiplication by a camera motion $M \in \mathbb{R}^{4 \times 4}$ given by
 
 $$ M_i = M M_{i-1} = exp(\mu) M_{i-1} $$
 
-where the camera motion is an element of $SE(3)$, the Lie group of rigid transformations in $\mathbb{R}^3$, whose tangent space is represented by the Lie algebra $\mathfrak{se}(3)$. It is important to note that $\mathfrak{se}(3)$ is isomorphic with $\mathbb{R}^6$ such that there exists a map that transforms between both spaces. Thus, this algebra can be parametrized by a vector $\mu = (\omega, \upsilon) \in \mathbb{R}^6$  where $\upsilon \in \mathbb{R}^3$ represent a translation, whereas $\omega \in \mathbb{R}^3$ represent a rotation axis and a rotation angle $\omega$ with its magnitude. These properties allow to enforce all the constraints of $SE(3)$ while keeping the optimization procedures simple on the vector space of $\mathfrak{se}(3) \approx \mathbb{R}^6$
+where the camera motion is an element of $SE(3)$, whose tangent space is represented by the Lie algebra $\mathfrak{se}(3)$. It is important to note that $\mathfrak{se}(3)$ is isomorphic with $\mathbb{R}^6$ such that there exists a map that transforms between both spaces. $\mathfrak{se}(3)$ can be parametrized by a vector $\mu = (\omega, \upsilon) \in \mathbb{R}^6$  where $\upsilon \in \mathbb{R}^3$ represent a translation, whereas $\omega \in \mathbb{R}^3$ represent a rotation axis and a rotation angle $\omega$ with its magnitude. These properties allow to enforce all the constraints of $SE(3)$ while keeping the optimization procedures simple on the vector space of $\mathfrak{se}(3) \approx \mathbb{R}^6$
 
 There are simpler ways to compute the exponential map for some groups such as $SO(3)$ and $SE(3)$. Using an adaptation of the original Rodrigues formula we can define the exponential map of $SE(3)$ for a matrix $S$ parametrized by $\mu$
 
