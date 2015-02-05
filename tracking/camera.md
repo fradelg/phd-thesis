@@ -7,7 +7,7 @@ A camera can be approximated by a projective model. We use the classic pinhole p
 - a lens with a focal length, center of projection and radial and barrel distortions
 - a camera frame, with a position and orientation in space
 
-![](../figures/pinhole.svg "Pinhole camera model")
+![pinhole](../figures/pinhole.svg "Pinhole camera model")
 
 The projection is represented by two set of parameters called intrinsic and extrinsic parameters. Intrinsic parameters allows to model the optic component considering distortions and aberrations introduced by the lens in the image. Extrinsic parameters represent the camera position and orientation. Then, the projection matrix $\mathbf{P}$ can be decomposed into two basic matrices:
 
