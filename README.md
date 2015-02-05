@@ -7,5 +7,3 @@ This book summarizes the knowledge acquired along the development activities per
 At a first step, the research is focused only on interior scenes with closed loops using triangulation between different camera positions at a graph. Energy minimization algorithms will be applied when possible in optimization and regularization procedures.
 
 Results could be applied to medicine, architecture, forestry, robotics or audiovisual production, among others.
-
-![kinectrgb](figures/lsd-slam/pointcloud-live.jpg "Output from 3D reconstruction performed by LSD-SLAM")
